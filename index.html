@@ -13,73 +13,8 @@
 <meta property="og:site_name" content="LUCENT BOYZ">
 <!-- Favicon -->
 <link rel="icon" href="images/favicon.ico">
-
 <title>LUCENT BOYZ | OFFICIAL</title>
-
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:#111;font-family:Arial,"Helvetica Neue",sans-serif;letter-spacing:.03em}
-a{color:inherit;text-decoration:none}
-.header{position:fixed;top:0;left:0;right:0;height:58px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 18px;z-index:20;border-bottom:1px solid #eee}
-.logo{font-weight:800;font-size:15px;letter-spacing:.12em}
-.menu-btn{width:42px;height:42px;border:0;background:none;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:5px}
-.menu-btn span{display:block;height:1.5px;background:#111;width:24px}
-.hero{height:100svh;min-height:620px;padding:58px 18px 24px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#f4f4f4,#fff 58%,#eceff2)}
-.hero-copy{padding-bottom:22px}
-.kicker{font-size:10px;letter-spacing:.22em;margin-bottom:12px}
-.hero h1{font-size:clamp(42px,13vw,64px);line-height:.92;margin:0;font-weight:800;letter-spacing:-.04em}
-.hero p{font-size:11px;letter-spacing:.2em;margin:16px 0 0}
-.section{padding:76px 18px}
-.section-title{font-size:11px;letter-spacing:.22em;margin:0 0 28px;font-weight:700}
-.news-item{border-top:1px solid #ddd;padding:17px 0}
-.news-item:last-child{border-bottom:1px solid #ddd}
-.date{font-size:10px;color:#777;margin-bottom:7px}
-.news-title{font-size:14px;line-height:1.5}
-.members{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#111}
-.member{
-  background:#f2f2f2;
-  padding:0;
-  display:block;
-}
-
-.member img{
-  display:block;
-  width:100%;
-  aspect-ratio:1 / 1;
-  object-fit:cover;
-}
-.member:nth-child(3n){background:#e9ecef}
-.member-name{font-size:17px;font-weight:700;letter-spacing:.08em}
-.member-role{display:block;font-size:9px;letter-spacing:.14em;margin-top:5px;color:#666}
-.card{border:1px solid #ddd;padding:20px;margin-bottom:10px}
-.card strong{font-size:15px}
-.card small{display:block;margin-top:7px;color:#777;font-size:10px;letter-spacing:.12em}
-.footer{padding:55px 18px 35px;border-top:1px solid #eee}
-.footer-logo{font-weight:800;letter-spacing:.12em}
-.footer small{display:block;margin-top:18px;color:#777;font-size:9px}
-.overlay{position:fixed;inset:0;background:#fff;z-index:30;transform:translateY(-100%);transition:transform .32s ease;display:flex;flex-direction:column}
-.overlay.open{transform:translateY(0)}
-.menu-head{height:58px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
-.close{font-size:30px;font-weight:200;background:none;border:0;line-height:1}
-.menu-links{padding:45px 28px}
-.menu-links a{display:block;font-size:25px;font-weight:700;letter-spacing:.06em;padding:15px 0}
-.menu-links small{display:block;font-size:9px;color:#777;letter-spacing:.18em;margin-top:-10px;margin-bottom:13px}
-@media (min-width:700px){body:before{content:"This sample is designed for smartphone viewing.";display:block;padding:30px;text-align:center}}
-
-.sns-card {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.sns-card:hover {
-  opacity: 0.7;
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="header">
@@ -122,7 +57,11 @@ a{color:inherit;text-decoration:none}
 <section class="section" id="members">
   <h2 class="section-title">MEMBERS</h2>
   <div class="members">
-    <a class="member" href="#sejin"><img src="images/members/sejin.jpg" alt="SEJIN"><div><div class="member-name">SEJIN</div><span class="member-role">VOCAL</span></div></a>
+    <a class="member" href="#sejin">
+  <img src="images/sejin.jpg" alt="SEJIN">
+  <div class="member-name">SEJIN</div>
+  <span class="member-role">VOCAL</span>
+</a>
     <a class="member" href="#haru"><div><div class="member-name">HARU</div><span class="member-role">ハル: VOCAL / DANCE</span></div></a>
     <a class="member" href="#yul"><div><div class="member-name">YUL</div><span class="member-role">ユル: VOCAL / DANCE</span></div></a>
     <a class="member" href="#jaeha"><div><div class="member-name">JAEHA</div><span class="member-role">ジェハ: RAP</span></div></a>
