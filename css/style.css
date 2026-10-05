@@ -307,6 +307,9 @@ a{
   margin-bottom:13px;
 }
 
+.sns-card{
+  display:block;
+}
 
 /* =========================
    PC VIEW
