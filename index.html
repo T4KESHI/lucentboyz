@@ -37,7 +37,18 @@ a{color:inherit;text-decoration:none}
 .date{font-size:10px;color:#777;margin-bottom:7px}
 .news-title{font-size:14px;line-height:1.5}
 .members{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#111}
-.member{background:#f2f2f2;min-height:210px;padding:14px;display:flex;align-items:flex-end}
+.member{
+  background:#f2f2f2;
+  padding:0;
+  display:block;
+}
+
+.member img{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+}
 .member:nth-child(3n){background:#e9ecef}
 .member-name{font-size:17px;font-weight:700;letter-spacing:.08em}
 .member-role{display:block;font-size:9px;letter-spacing:.14em;margin-top:5px;color:#666}
