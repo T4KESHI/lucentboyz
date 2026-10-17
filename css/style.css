@@ -74,7 +74,7 @@ a{
 .hero{
   font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
   height:100svh;
   min-height:620px;
   padding:58px 18px 24px;
@@ -242,8 +242,9 @@ a{
 }
 
 .footer-logo{
-  font-weight:800;
-  letter-spacing:.12em;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight:700;
+  letter-spacing:.0.08em;
 }
 
 .footer small{
