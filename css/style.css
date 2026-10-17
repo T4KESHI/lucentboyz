@@ -40,10 +40,11 @@ a{
   border-bottom:1px solid #eee;
 }
 
-.logo{
-  font-weight:800;
-  font-size:15px;
-  letter-spacing:.12em;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.08em;
 }
 
 .menu-btn{
