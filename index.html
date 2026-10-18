@@ -188,7 +188,7 @@ function closeMenu() {
     clearInterval(timer);
     timer = setInterval(() => {
       showSlide(current + 1);
-    }, 5000);
+    }, 6000);
   }
 
   prev.addEventListener('click', () => {
@@ -207,6 +207,33 @@ function closeMenu() {
       startAutoPlay();
     });
   });
+
+
+  // スマートフォンのスワイプ操作
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  slider.addEventListener('touchstart', (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+
+  slider.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    // 横方向に十分スワイプした場合だけ切り替える
+    if (Math.abs(deltaX) < 50 ||
+        Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    showSlide(current + (deltaX < 0 ? 1 : -1));
+    startAutoPlay();
+  }, { passive: true });
+
 
   showSlide(0);
   startAutoPlay();
