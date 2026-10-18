@@ -69,7 +69,7 @@ a{
 
 /* =========================
    HERO
-========================= */
+=========================
 
 .hero{
  
@@ -97,7 +97,7 @@ a{
 */
 
   }
-
+/*
 .hero-image {
   display: block;
   width: 100%;
@@ -131,7 +131,7 @@ a{
   margin:16px 0 0;
 }
 
-
+*/
 /* =========================
    SECTION
 ========================= */
@@ -262,7 +262,7 @@ a{
 .footer-logo{
   font-family: 'Cormorant Garamond', serif;
   font-weight:700;
-  letter-spacing:.0.08em;
+  letter-spacing: 0.08em;
 }
 
 .footer small{
@@ -333,6 +333,109 @@ a{
 .sns-card{
   display:block;
 }
+
+
+
+/* ヒーローエリア */
+.hero {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+/* スライダー全体 */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 各スライド */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* 表示中のスライド */
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* スライド画像 */
+.hero-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 左右の矢印 */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  color: #55466a;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.slider-arrow.prev {
+  left: 10px;
+}
+
+.slider-arrow.next {
+  right: 10px;
+}
+
+/* ページネーション */
+.slider-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(80, 60, 100, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+}
+
+
+
+
+
 
 /* =========================
    PC VIEW

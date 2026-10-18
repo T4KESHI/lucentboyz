@@ -41,15 +41,36 @@
 
 <main>
 <section class="hero" id="home">
-<img
+   <div class="hero-slider">
+    <div class="hero-slide active">
+      <img src="images/top/main.jpg" alt="LUCENT BOYZ メンバー集合写真">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/top/live.jpg" alt="LUCENT BOYZ ライブ告知">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/top/collab.png" alt="LUCENT BOYZ アパレルコラボ告知">
+    </div>
+
+    <button class="slider-arrow prev" aria-label="前の画像">‹</button>
+    <button class="slider-arrow next" aria-label="次の画像">›</button>
+
+    <div class="slider-dots">
+      <button class="slider-dot active" aria-label="1枚目"></button>
+      <button class="slider-dot" aria-label="2枚目"></button>
+      <button class="slider-dot" aria-label="3枚目"></button>
+    </div>
+  </div>
+
+  <!--
+  <img
     class="hero-image"
     src="images/top/collab.png"
     alt="LUCENT BOYZ OFFICIAL WEBSITE"
->  
+  >  
 
-
-
-<!--
   <div class="hero-copy">
     <div class="kicker">OFFICIAL WEBSITE</div>
     <h1>LUCENT<br>BOYZ</h1>
@@ -121,8 +142,75 @@
 </footer>
 
 <script>
-function openMenu(){document.getElementById('menu').classList.add('open');document.body.style.overflow='hidden'}
-function closeMenu(){document.getElementById('menu').classList.remove('open');document.body.style.overflow=''}
+function openMenu() {
+  document.getElementById('menu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  document.getElementById('menu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ヒーロースライダー
+(() => {
+  const slider = document.querySelector('.hero-slider');
+  if (!slider) return;
+
+  const slides = [...slider.querySelectorAll('.hero-slide')];
+  const dots = [...slider.querySelectorAll('.slider-dot')];
+  const prev = slider.querySelector('.slider-arrow.prev');
+  const next = slider.querySelector('.slider-arrow.next');
+
+  if (slides.length === 0 || !prev || !next ||
+      dots.length !== slides.length) return;
+
+  let current = 0;
+  let timer;
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === current);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+      dot.setAttribute(
+        'aria-current',
+        i === current ? 'true' : 'false'
+      );
+    });
+  }
+
+  function startAutoPlay() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      showSlide(current + 1);
+    }, 3000);
+  }
+
+  prev.addEventListener('click', () => {
+    showSlide(current - 1);
+    startAutoPlay();
+  });
+
+  next.addEventListener('click', () => {
+    showSlide(current + 1);
+    startAutoPlay();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      showSlide(i);
+      startAutoPlay();
+    });
+  });
+
+  showSlide(0);
+  startAutoPlay();
+})();
 </script>
 </body>
 </html>
