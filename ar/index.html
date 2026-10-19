@@ -166,9 +166,22 @@
         "サンプル画像全体が画面に入るように映してください。";
     });
 
-    document.querySelector("a-scene").addEventListener("loaded", () => {
-      statusText.textContent = "マーカーを探しています";
-    });
+    const scene = document.querySelector("a-scene");
+
+scene.addEventListener("loaded", () => {
+  statusText.textContent = "A-Frame読み込み完了。AR起動を確認中";
+});
+
+scene.addEventListener("arReady", () => {
+  statusText.textContent = "AR起動成功。カメラ映像を確認してください";
+  hint.textContent = "ARは起動しました。背景が黒い場合は、そのまま画面を確認してください。";
+});
+
+scene.addEventListener("arError", (event) => {
+  statusText.textContent = "AR起動エラー";
+  hint.textContent = "MindARの起動に失敗しました。ページの設定やブラウザとの互換性を確認します。";
+  console.error("MindAR arError:", event);
+});
   </script>
 </body>
 </html>
