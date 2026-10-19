@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LUCENT BOYZ | AR Test 1.1.4</title>
+
+  <!-- A-Frameを先に読み込む -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #222;
+      font-family: sans-serif;
+    }
+
+    #status {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      padding: 12px;
+      color: white;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    a-scene {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="status">ページを読み込んでいます…</div>
+
+  <a-scene
+    mindar-image="
+      imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/card-example/card.mind;
+      autoStart: true;
+      uiLoading: yes;
+      uiScanning: yes;
+    "
+    color-space="sRGB"
+    renderer="colorManagement: true"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+    <a-assets>
+      <img id="eunho" src="./images/EUNHO.png">
+    </a-assets>
+
+    <a-camera
+      position="0 0 0"
+      look-controls="enabled: false">
+    </a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-image
+        id="eunho-plane"
+        src="#eunho"
+        width="0.65"
+        height="1.3"
+        rotation="90 0 0"
+        position="0 0 0.65">
+      </a-image>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    const status = document.getElementById("status");
+    const scene = document.querySelector("a-scene");
+    const target = document.querySelector("[mindar-image-target]");
+
+    scene.addEventListener("loaded", () => {
+      status.textContent = "A-Frame読み込み完了。MindARを起動中…";
+    });
+
+    scene.addEventListener("arReady", () => {
+      status.textContent = "AR起動成功。マーカーを映してください。";
+    });
+
+    scene.addEventListener("arError", (event) => {
+      status.textContent = "AR起動エラー。コンソールを確認してください。";
+      console.error("MindAR error:", event);
+    });
+
+    target.addEventListener("targetFound", () => {
+      status.textContent = "EUNHO表示中";
+    });
+
+    target.addEventListener("targetLost", () => {
+      status.textContent = "マーカーを探しています";
+    });
+
+    window.addEventListener("error", (event) => {
+      status.textContent = "JavaScriptエラー: " + event.message;
+      console.error(event);
+    });
+
+    window.addEventListener("unhandledrejection", (event) => {
+      status.textContent =
+        "初期化エラー: " +
+        String(event.reason?.message || event.reason || "詳細不明");
+      console.error(event.reason);
+    });
+
+    const img = document.getElementById("eunho");
+    const plane = document.getElementById("eunho-plane");
+
+    function fitImage() {
+      if (!img.naturalWidth || !img.naturalHeight) return;
+
+      const height = 1.3;
+      const width = height * img.naturalWidth / img.naturalHeight;
+
+      plane.setAttribute("width", width);
+      plane.setAttribute("height", height);
+      plane.setAttribute("position", `0 0 ${height / 2}`);
+    }
+
+    img.addEventListener("load", fitImage);
+    if (img.complete) fitImage();
+
+    img.addEventListener("error", () => {
+      status.textContent = "EUNHO.pngを読み込めません。ファイル名を確認してください。";
+    });
+  </script>
+</body>
+</html>
