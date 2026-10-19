@@ -166,10 +166,33 @@
         "サンプル画像全体が画面に入るように映してください。";
     });
 
-    const scene = document.querySelector("a-scene");
+const scene = document.querySelector("a-scene");
 
 scene.addEventListener("loaded", () => {
-  statusText.textContent = "A-Frame読み込み完了。AR起動を確認中";
+  statusText.textContent = "A-Frame読み込み完了";
+});
+
+scene.addEventListener("arReady", () => {
+  statusText.textContent = "AR起動成功";
+  hint.textContent = "マーカーをカメラに映してください。";
+});
+
+scene.addEventListener("arError", (event) => {
+  statusText.textContent = "AR起動エラー";
+  hint.textContent = "AR初期化に失敗しました。";
+  console.error("MindAR arError:", event);
+});
+
+window.addEventListener("error", (event) => {
+  statusText.textContent = "JavaScriptエラー";
+  hint.textContent = event.message || "スクリプトの実行に失敗しました。";
+});
+
+window.addEventListener("unhandledrejection", (event) => {
+  statusText.textContent = "AR初期化エラー";
+  hint.textContent = String(
+    event.reason?.message || event.reason || "詳細不明のエラー"
+  );
 });
 
 scene.addEventListener("arReady", () => {
