@@ -87,18 +87,17 @@
   </div>
 
   <a-scene
-    mindar-image="
-      imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind;
-      autoStart: true;
-      uiLoading: yes;
-      uiScanning: yes;
-    "
-    color-space="sRGB"
-    renderer="colorManagement: true; alpha: true"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
-    loading-screen="enabled: false"
-    embedded>
+  mindar-image="
+    imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind;
+    autoStart: true;
+    uiLoading: yes;
+    uiScanning: yes;
+  "
+  color-space="sRGB"
+  renderer="colorManagement: true, physicallyCorrectLights"
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false"
+  loading-screen="enabled: false">
     
     <a-assets>
       <img
