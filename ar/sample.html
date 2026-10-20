@@ -49,7 +49,7 @@
       <a-marker
         type="pattern"
         patternUrl="./markers/pattern-sample.patt"
-        id="pattern-sample">
+        id="hiro-marker">
           <a-box
               position="0 0.1 0"
               width="0.2"
@@ -74,7 +74,7 @@
 
   <script>
     const status = document.getElementById("status");
-    const marker = document.getElementById("pattern-sample");
+    const marker = document.getElementById("hiro-marker");
 
     document.querySelector("a-scene").addEventListener("loaded", () => {
       status.textContent = "AR.js読み込み完了。カメラを準備しています…";
