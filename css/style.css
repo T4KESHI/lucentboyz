@@ -402,6 +402,39 @@ body {
 }
 
 
+/* NEWS ARTICLE */
+.news-article {
+  padding-top: 100px;
+}
+
+.news-article .date {
+  font-size: 10px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.news-article h1 {
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin: 0 0 28px;
+}
+
+.news-article p {
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  margin: 0 0 24px;
+}
+
+.news-article .back-link {
+  font-size: 13px;
+  margin-top: 36px;
+}
+
+
 /* =========================
    PC VIEW
 ========================= */
